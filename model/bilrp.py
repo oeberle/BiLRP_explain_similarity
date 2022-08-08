@@ -118,7 +118,7 @@ class VggLayers(nn.Module):
         # Flatten vgg feature maps
         if self.proj_case == 'random':
             if int(self.feature_layer) in self.ls:
-                h_0_flat = h_0.view((self.h_proj*self.w_proj*self.filter_dict[self.feature_layer],)).unsqueeze(0)
+                h_0_flat = h_0.reshape((self.h_proj*self.w_proj*self.filter_dict[self.feature_layer],)).unsqueeze(0)
             h_0_flat = h_0.unsqueeze(2).unsqueeze(3)
 
         # Apply projection 
